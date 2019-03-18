@@ -1,0 +1,53 @@
+@import '~mapbox-gl/dist/mapbox-gl.css';
+
+html, body {
+  margin: 0;
+}
+
+body {
+  background: #22d0b2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.h4 {
+  text-align: justify;
+}
+
+.map {
+  width: 300px;
+  height: 300px;
+  border: 5px solid white;
+}
+
+.embed {
+  height: 80px;
+  padding-top: 5px;
+}
+
+.title, .subtitle {
+  text-align: center;
+}
+
+.topTunes {
+  text-align: left;
+}
+
+.hidden {
+  display: none;
+}
+
+.black {
+  background-color: #363636;
+  color: white;
+}
+
+.whiteText {
+  color: white;
+}
+
+.columns {
+  padding: 4%;
+}
