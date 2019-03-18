@@ -59,7 +59,7 @@ class App extends React.Component {
   }
 
   grabArtistBio() {
-    axios.get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${encodeURI(this.state.artistFullName)}&api_key=${lastFMToken}&format=json`, {
+    axios.get(`https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${encodeURI(this.state.artistFullName)}&api_key=${lastFMToken}&format=json`, {
     })
       .then(res => this.setState({ bio: res.data.artist.bio.summary, ontour: res.data.artist.ontour, genre: res.data.artist.tags.tag[0].name }))
       .then(() => this.removeString(this.state.bio))
