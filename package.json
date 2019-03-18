@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "webpack-dev-server --mode=development",
     "build": "webpack -p",
-    "start": "node index.js",
-    "heroku-postbuild": "cd src && yarn install && yarn install --only=dev --no-shrinkwrap && yarn build"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
