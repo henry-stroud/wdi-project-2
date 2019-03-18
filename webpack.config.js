@@ -5,7 +5,7 @@ const Dotenv = require('dotenv-webpack')
 
 new webpack.DefinePlugin({
   'process.env': {
-    MAPBOX_ACCESS_TOKEN: process.env.MAPBOX_ACCESS_TOKEN
+    MAPBOX_ACCESS_TOKEN: JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN)
   }
 })
 
