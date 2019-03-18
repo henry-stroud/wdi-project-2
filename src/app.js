@@ -17,6 +17,8 @@ const spotifyToken = process.env.REACT_APP_SPOTIFY_ACCESS_TOKEN
 const lastFMToken = process.env.REACT_APP_LAST_FM_ACCESS_TOKEN
 const musicMatchToken = process.env.REACT_APP_MUSIXMATCH_ACCESS_TOKEN
 
+console.log(lastFMToken)
+
 const initialState = { artistFullName: '', recommendations: '', topTracks: '', artistData: '', bio: '', token: '', country: '', mapCenter: '', search: '', pressed: 'is-fullheight-with-navbar', hidden: '', ontour: '' , genre: '', disappear: '' }
 
 

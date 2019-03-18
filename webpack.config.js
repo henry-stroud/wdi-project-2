@@ -26,10 +26,7 @@ module.exports = {
     watchContentBase: true
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'MAPBOX_ACCESS_TOKEN': JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN),
-      'REACT_APP_LAST_FM_ACCESS_TOKEN': JSON.stringify(process.env.REACT_APP_LAST_FM_ACCESS_TOKEN)
-    }),
+    new webpack.DefinePlugin({ ...process.env }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
