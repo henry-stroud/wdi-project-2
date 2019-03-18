@@ -27,8 +27,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      MAPBOX_ACCESS_TOKEN: JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN),
-      REACT_APP_LAST_FM_ACCESS_TOKEN: JSON.stringify(process.env.REACT_APP_LAST_FM_ACCESS_TOKEN)
+      'MAPBOX_ACCESS_TOKEN': JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN),
+      'REACT_APP_LAST_FM_ACCESS_TOKEN': JSON.stringify(process.env.REACT_APP_LAST_FM_ACCESS_TOKEN)
     }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
