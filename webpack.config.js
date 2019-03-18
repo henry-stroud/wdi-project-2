@@ -4,9 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 
 new webpack.DefinePlugin({
-  'process.env': {
-    MAPBOX_ACCESS_TOKEN: JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN)
-  }
+  'process.env.MAPBOX_ACCESS_TOKEN': JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN),
+  'process.env.REACT_APP_LAST_FM_ACCESS_TOKEN': JSON.stringify(process.env.REACT_APP_LAST_FM_ACCESS_TOKEN)
 })
 
 module.exports = {
@@ -36,8 +35,6 @@ module.exports = {
       filename: 'index.html',
       inject: 'body'
     }),
-    new Dotenv({
-      MAPBOX_ACCESS_TOKEN: JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN)
-    })
+    new Dotenv()
   ]
 }
