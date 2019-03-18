@@ -3,10 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 
-new webpack.DefinePlugin({
-  'process.env.MAPBOX_ACCESS_TOKEN': JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN),
-  'process.env.REACT_APP_LAST_FM_ACCESS_TOKEN': JSON.stringify(process.env.REACT_APP_LAST_FM_ACCESS_TOKEN)
-})
+
 
 module.exports = {
   entry: './src/app.js',
@@ -29,6 +26,10 @@ module.exports = {
     watchContentBase: true
   },
   plugins: [
+    new webpack.DefinePlugin({
+      MAPBOX_ACCESS_TOKEN: JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN),
+      REACT_APP_LAST_FM_ACCESS_TOKEN: JSON.stringify(process.env.REACT_APP_LAST_FM_ACCESS_TOKEN)
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
