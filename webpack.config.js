@@ -24,14 +24,14 @@ module.exports = {
     watchContentBase: true
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'REACT_APP_LAST_FM_ACCESS_TOKEN': JSON.stringify(process.env.REACT_APP_LAST_FM_ACCESS_TOKEN),
-        'REACT_APP_MUSIXMATCH_ACCESS_TOKEN': JSON.stringify(process.env.REACT_APP_MUSIXMATCH_ACCESS_TOKEN),
-        'REACT_APP_SPOTIFY_ACCESS_TOKEN': JSON.stringify(process.env.REACT_APP_SPOTIFY_ACCESS_TOKEN),
-        'MAPBOX_ACCESS_TOKEN': JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN)
-      }
-    }),
+    // new webpack.DefinePlugin({
+    //   'process.env': {
+    //     'REACT_APP_LAST_FM_ACCESS_TOKEN': JSON.stringify(process.env.REACT_APP_LAST_FM_ACCESS_TOKEN),
+    //     'REACT_APP_MUSIXMATCH_ACCESS_TOKEN': JSON.stringify(process.env.REACT_APP_MUSIXMATCH_ACCESS_TOKEN),
+    //     'REACT_APP_SPOTIFY_ACCESS_TOKEN': JSON.stringify(process.env.REACT_APP_SPOTIFY_ACCESS_TOKEN),
+    //     'MAPBOX_ACCESS_TOKEN': JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN)
+    //   }
+    // }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
