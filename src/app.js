@@ -19,7 +19,15 @@ import SpotifyLogin from 'react-spotify-login'
 
 //
 const clientId = process.env.SPOTIFY_CLIENT_ID
-const redirectUri = process.env.SPOTIFY_REDIRECT_URI
+const redirectUri = checkRedirect()
+
+function checkRedirect() {
+  if (process.env.NODE_ENV !== 'production') {
+    return process.env.LOCAL_REDIRECT_URI
+  } else {
+    return process.env.SPOTIFY_REDIRECT_URI
+  }
+}
 
 const className = 'button is-info'
 
