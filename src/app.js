@@ -23,6 +23,8 @@ const redirectUri = process.env.SPOTIFY_REDIRECT_URI
 
 const className = 'button is-info'
 
+console.log('hello')
+
 const lastFMToken = process.env.REACT_APP_LAST_FM_ACCESS_TOKEN
 const musicMatchToken = process.env.REACT_APP_MUSIXMATCH_ACCESS_TOKEN
 
