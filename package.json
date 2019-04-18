@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "webpack-dev-server --mode=development",
     "build": "webpack -p",
-    "start": "node index.js"
+    "start": "yarn build && node index.js"
   },
   "author": "",
   "license": "ISC",
