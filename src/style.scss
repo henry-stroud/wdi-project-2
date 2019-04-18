@@ -51,3 +51,19 @@ body {
 .columns {
   padding: 4%;
 }
+
+button {
+  width: 200px;
+}
+
+.login-button {
+
+}
+
+.login-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50vw;
+}

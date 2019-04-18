@@ -12,8 +12,17 @@ import './animate.scss'
 import NavBar from './components/navbar'
 import Home from './components/home'
 import ArtistProfile from './components/artistprofile'
+import SpotifyLogin from 'react-spotify-login'
 
-const spotifyToken = process.env.REACT_APP_SPOTIFY_ACCESS_TOKEN
+// const clientId = 'dc71ba45d71f4164bf80b79e4de42b9d'
+// const redirectUri = 'http://localhost:8000/callback'
+
+//
+const clientId = process.env.SPOTIFY_CLIENT_ID
+const redirectUri = process.env.SPOTIFY_REDIRECT_URI
+
+const className = 'button is-info'
+
 const lastFMToken = process.env.REACT_APP_LAST_FM_ACCESS_TOKEN
 const musicMatchToken = process.env.REACT_APP_MUSIXMATCH_ACCESS_TOKEN
 
@@ -29,13 +38,23 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.goToHome = this.goToHome.bind(this)
+    this.onSuccess = this.onSuccess.bind(this)
+    this.onFailure = this.onFailure.bind(this)
 
+  }
+
+  onSuccess(response) {
+    this.setState({...this.state, apiKey: response.access_token})
+  }
+
+  onFailure(response) {
+    console.error(response)
   }
 
   grabRecommendations() {
     axios.get(`https://api.spotify.com/v1/recommendations?seed_artists=${this.state.artistId}&min_popularity=50`, {
       headers: {
-        Authorization: `Bearer ${spotifyToken}`
+        Authorization: `Bearer ${this.state.apiKey}`
       }
     })
       .then(res => this.setState({ recommendations: res.data }))
@@ -44,7 +63,7 @@ class App extends React.Component {
   grabTopTracks() {
     axios.get(`https://api.spotify.com/v1/artists/${this.state.artistId}/top-tracks?country=US`, {
       headers: {
-        Authorization: `Bearer ${spotifyToken}`
+        Authorization: `Bearer ${this.state.apiKey}`
       }
     })
       .then(res => this.setState({ topTracks: res.data.tracks }))
@@ -54,7 +73,7 @@ class App extends React.Component {
   grabArtist() {
     axios.get(`https://api.spotify.com/v1/recommendations?seed_artists=${this.state.artistId}&min_popularity=50`, {
       headers: {
-        Authorization: `Bearer ${spotifyToken}`
+        Authorization: `Bearer ${this.state.apiKey}`
       }
     })
       .then(res => this.setState({ artistData: res.data }))
@@ -92,7 +111,7 @@ class App extends React.Component {
     e.preventDefault()
     axios.get(`https://api.spotify.com/v1/search?q=${encodeURI(this.state.artistFullName)}&type=artist`, {
       headers: {
-        Authorization: `Bearer ${spotifyToken}`
+        Authorization: `Bearer ${this.state.apiKey}`
       }
     })
       .then(res => this.setState({ search: res.data, artistId: res.data.artists.items[0].id, artist: res.data.artists.items[0].name, pressed: '', hidden: 'hidden', disappear: 'disappear' }))
@@ -129,7 +148,18 @@ class App extends React.Component {
         <NavBar
           goToHome={this.goToHome}
         />
-        <Home
+        {!this.state.apiKey &&
+          <div className='login-page'>
+          <SpotifyLogin
+          clientId={clientId}
+          redirectUri={redirectUri}
+          onSuccess={this.onSuccess}
+          onFailure={this.onFailure}
+          className={className}
+          />
+          </div>
+        }
+        {this.state.apiKey && <Home
           hasPressedGo={this.state.hasPressedGo}
           searched={this.state.search}
           pressed={this.state.pressed}
@@ -138,7 +168,7 @@ class App extends React.Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           artistFullName={this.state.artistFullName}
-        />
+        />}
         {this.state.search &&
           <div>
             <ArtistProfile {...this.state} />
