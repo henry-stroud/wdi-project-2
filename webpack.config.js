@@ -24,7 +24,7 @@ module.exports = {
     watchContentBase: true
   },
   plugins: [
-    new webpack.EnvironmentPlugin({...process.env}),
+    process.env.NODE_ENV === 'production' ? new webpack.EnvironmentPlugin({ ...process.env }) : new Dotenv(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
