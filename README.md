@@ -53,7 +53,7 @@ This data was then mapped out into each component, and reset after each new sear
 
 One of the main challenges was allowing a user to login via Spotify. This was actually completed after the project had finished, as I became aware of a React plugin that allowed for Implicit Grant Authorization access. After some research online I managed to apply the component to our site, as well as setting the temporary apiKey in state to be used by the user and site. This meant that any user worldwide can login with their account and receive all the data they need.
 
-We also went through some challenges with passing state down to child components, at once stage we figured out that it was much more convenient to hold the state in our main app.js file and then pass down from there rather than through unrelated components.
+We also went through some challenges with passing state down to child components. We figured out that it was much more convenient to hold the state in our main app.js file and then pass the props down from there rather than through unrelated components.
 
 ### Wins
 
