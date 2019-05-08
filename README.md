@@ -37,15 +37,15 @@ Artistify was a pair project, and my second project at General Assembly's Web De
 
 We began the project by mapping out wireframes of exactly how we would like the site to look when finished. We settled on the idea of an application that would search any artist in the world, and return interactive data about them. We decided that the best API to use for this was Spotify's, as we imagined it would have all the data we would need for this. However, we quickly found that Spotify only returned song, album and artist data with no biography.
 
-![screenshot - Play Button](https://raw.githubusercontent.com/henry-stroud/wdi-project-1/master/Play%20Button%20Screenshot.png)
+![screenshot - Artistify Search](https://github.com/henry-stroud/wdi-project-2/blob/master/img/artistify-search.png?raw=true)
 
 We did some research into different music-based APIs online, and found Last FM, which was able to give us accurate biographical data on artists, as well as MusixMatch which gave data for artist nationality. We then had to use RestCountries' API to find the latitude and longitude of that country, and then decided to display that on a Mapbox map with a marker.
 
-![screenshot - Beginning grids](https://raw.githubusercontent.com/henry-stroud/wdi-project-1/master/Main%20Page%20Screenshot.png)
+![screenshot - Sign in](https://github.com/henry-stroud/wdi-project-2/blob/master/img/spotify-login.png?raw=true)
 
 Using axios to make API requests, as well promises, we chained together several API requests in an order that took the initial search from the user and parsed that data through each API to gather the correct result. We also had to encode the data into URL format, so the query could be read by the API request.
 
-![screenshot - Placement of Ship](https://raw.githubusercontent.com/henry-stroud/wdi-project-1/master/Battleship%20Placement.png)
+![screenshot - Spotify Login](https://github.com/henry-stroud/wdi-project-2/blob/master/img/sign-in.png?raw=true)
 
 This data was then mapped out into each component, and reset after each new search by the user.
 
