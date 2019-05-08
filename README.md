@@ -26,7 +26,7 @@ Artistify is an application that allows the user to sign in via Spotify OAuth th
 Artistify was a pair project, and my second project at General Assembly's Web Development Immersive Course, built in 2.5 days.
 
 ### Brief
-- **build a React application** that consumes a **public API**.
+- **Build a React application** that consumes a **public API**.
 - **Have several components** - At least one classical and one functional.
 - **The app should include a router** - with several "pages".
 - Have **semantically clean HTML**
