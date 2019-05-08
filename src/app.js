@@ -4,6 +4,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 import 'bulma'
+import Favicon from 'react-favicon'
+
 
 import './style.scss'
 
@@ -155,6 +157,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Favicon url="https://i.imgur.com/lI0Sreq.png" />
         <NavBar
           goToHome={this.goToHome}
         />
