@@ -160,13 +160,13 @@ class App extends React.Component {
         />
         {!this.state.apiKey &&
           <div className='login-page'>
-          <SpotifyLogin
-          clientId={clientId}
-          redirectUri={redirectUri}
-          onSuccess={this.onSuccess}
-          onFailure={this.onFailure}
-          className={className}
-          />
+            <SpotifyLogin
+              clientId={clientId}
+              redirectUri={redirectUri}
+              onSuccess={this.onSuccess}
+              onFailure={this.onFailure}
+              className={className}
+            />
           </div>
         }
         {this.state.apiKey && <Home
