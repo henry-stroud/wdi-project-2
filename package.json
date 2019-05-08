@@ -40,5 +40,8 @@
     "react-router-dom": "^4.3.1",
     "react-spotify-login": "^0.9.1",
     "webpack-merge": "^4.2.1"
+  },
+  "resolutions": {
+  "react-router": "4.3.1"
   }
 }
