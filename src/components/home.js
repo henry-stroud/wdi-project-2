@@ -11,14 +11,6 @@ class Home extends React.Component {
   }
 
 
-  // componentDidUpdate(prev) {
-  //   if(this.props.pressed !== prev.pressed) {
-  //
-  //   }
-  //   return null
-  // }
-
-
   render() {
     return(
       <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>

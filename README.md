@@ -45,13 +45,47 @@ We did some research into different music-based APIs online, and found Last FM, 
 
 Using axios to make API requests, as well promises, we chained together several API requests in an order that took the initial search from the user and parsed that data through each API to gather the correct result. We also had to encode the data into URL format, so the query could be read by the API request.
 
+The below code demonstrates the chaining together of API calls through promises and various functions:
+
+```
+
+handleSubmit(e) {
+  e.preventDefault()
+  axios.get(`https://api.spotify.com/v1/search?q=${encodeURI(this.state.artistFullName)}&type=artist`, {
+    headers: {
+      Authorization: `Bearer ${this.state.apiKey}`
+    }
+  })
+    .then(res => this.setState({ search: res.data, artistId: res.data.artists.items[0].id, artist: res.data.artists.items[0].name, pressed: '', hidden: 'hidden', disappear: 'disappear' }))
+    .then(() => this.grabRecommendations())
+    .then(() => this.grabTopTracks())
+    .then(() => this.grabArtist())
+    .then(() => this.grabArtistBio())
+    .then(() => this.grabArtistNationality())
+
+}
+
+```
+
 ![screenshot - Spotify Login](https://github.com/henry-stroud/wdi-project-2/blob/master/img/sign-in.png?raw=true)
 
 This data was then mapped out into each component, and reset after each new search by the user.
 
+The order in which we went through the process ran from:
+
+1. Project planning and ideas
+2. Wireframes
+3. Pseudo Code
+4. Building the Webpack
+5. Creating each unstyled component
+6. Styling all components using Bulma classes
+7. Animations via Animate.css
+
+A lot of the work was done in pair-code as we only had limited time to complete the project. When our team was not together I researched and studied the APIs we were using, whilst my team mate focused on the design aspect of the site. We also coded using the Teletype feature on Atom.
+
 ### Challenges
 
-One of the main challenges was allowing a user to login via Spotify. This was actually completed after the project had finished, as I became aware of a React plugin that allowed for Implicit Grant Authorization access. After some research online I managed to apply the component to our site, as well as setting the temporary apiKey in state to be used by the user and site. This meant that any user worldwide can login with their account and receive all the data they need.
+One of the main challenges was allowing a user to login via Spotify. This was actually completed after the project had finished, as I became aware of a React plugin that allowed for Implicit Grant Authorization access. After some research online I managed to apply the component to our site, as well as setting the temporary API key in state to be used by the user and site. This meant that any user worldwide can login with their account and receive all the data they need.
 
 We also went through some challenges with passing state down to child components. We figured out that it was much more convenient to hold the state in our main app.js file and then pass the props down from there rather than through unrelated components.
 
@@ -111,3 +145,8 @@ class Map extends React.Component {
 ## Future features
 
 At the moment the app is quite slow, due to the chaining of API calls. I think in order to make it faster I would do further research into an API that could provide all the data needed, rather than filtering through what ended up being four different APIs. If I had more time I would have liked to make the app more responsive on mobile.
+
+
+## Key Takeaways
+
+This was the first project I had done in a pair, and really showed me the value of team based cooperation in a sprint. I enjoyed the sharing of ideas, and especially pair-coding as having two minds working on the same problem helped enormously. I also learned that Public APIs are all  different and unique, and all need to be studied and researched thoroughly before implementing.

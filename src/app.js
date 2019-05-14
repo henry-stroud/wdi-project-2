@@ -1,5 +1,3 @@
-// require('dotenv').config()
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
@@ -16,10 +14,6 @@ import Home from './components/home'
 import ArtistProfile from './components/artistprofile'
 import SpotifyLogin from 'react-spotify-login'
 
-// const clientId = 'dc71ba45d71f4164bf80b79e4de42b9d'
-// const redirectUri = 'http://localhost:8000/callback'
-
-//
 const clientId = process.env.SPOTIFY_CLIENT_ID
 const redirectUri = checkRedirect()
 
