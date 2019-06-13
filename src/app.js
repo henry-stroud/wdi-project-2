@@ -27,8 +27,6 @@ function checkRedirect() {
 
 const className = 'button is-info'
 
-console.log('hello')
-
 const lastFMToken = process.env.REACT_APP_LAST_FM_ACCESS_TOKEN
 const musicMatchToken = process.env.REACT_APP_MUSIXMATCH_ACCESS_TOKEN
 
@@ -130,7 +128,6 @@ class App extends React.Component {
   }
 
   checkOnTour() {
-    console.log(this.state.ontour)
     if (this.state.ontour === '1') {
       this.setState({ ontourboolean: 'yes'})
     } else {
